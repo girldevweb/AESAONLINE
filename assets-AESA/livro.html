@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AesaOnline</title>
+  
+  
+  <link rel="stylesheet" href="livros-style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo"><a href="index.html">AesaOnline</a></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true" aria-expanded="false">
+            Biografia <i class="fas fa-chevron-down"></i>
+          </button>
+          <div id="dropdown1" class="dropdown-content">
+            <ul>
+              <li><a href="maria-jose.html">Maria José Elias</a></li>
+              <li><a href="antonio-elias.html">Antonio Elias</a></li>
+              <li><a href="historia-casal.html">História do casal</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="sermoes.html">Sermões</a></li>
+        <li><a href="livros.html">Livros</a></li>
+        <li class="dropdown">
+          <button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false">
+            Depoimentos <i class="fas fa-chevron-down"></i>
+          </button>
+          <div id="dropdown2" class="dropdown-content">
+            <ul>
+              <li><a href="cartas.html">Cartas</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="sobre-nos.html">Sobre Nós</a></li>
+      </ul>
+    </nav>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Pesquisar...">
+      <button id="search-button"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="icons-container">
+      <div class="search-icon"><i class="fas fa-search"></i></div>
+      <div class="menu-icon"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+  <main class="livro-detalhe">
+    <div class="livro-container">
+      <div class="livro-header">
+        <div class="livro-capa">
+          <img src="" alt="Capa do livro" id="livro-capa">
+        </div>
+        <div class="livro-info-header">
+          <h1 id="livro-titulo"></h1>
+          <p id="livro-autor"></p>
+          <div class="livro-descricao">
+            <p id="livro-descricao-texto"></p>
+          </div>
+        </div>
+      </div>
+      <div class="livro-info-detalhes">
+        <div class="autor-info">
+          <h2>Sobre o Autor</h2>
+          <p id="autor-bio"></p>
+        </div>
+        <div class="livro-detalhes">
+          <h2>Detalhes do Livro</h2>
+          <ul>
+            <li>Páginas: <span id="livro-paginas"></span></li>
+            <li>Publicado em: <span id="livro-publicado"></span></li>
+            <li>Editora: <span id="livro-editora"></span></li>
+          </ul>
+        </div>
+        <div class="livro-acoes">
+          <button id="comprar-fisico" class="btn">Comprar livro físico</button>
+          <button id="baixar-pdf" class="btn">Baixar PDF</button>
+          <button id="audio-livro" class="btn">Áudio livro</button>
+        </div>
+      </div>
+    </div>
+    <div id="audio-player" style="display: none;">
+      <h3>Capítulos do Áudio Livro</h3>
+      <ul id="audio-chapters"></ul>
+      <audio id="audio-element" controls></audio>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">AesaOnline</div>
+          <div class="quick-links">
+            <h3>Links Rápidos</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#biografia">Biografia</a></li>
+                <li><a href="sermoes.html">Sermões</a></li>
+                <li><a href="livros.html">Livros</a></li>
+                <li><a href="cartas.html">Depoimentos</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="sobre-nos.html">Sobre Nós</a></li>
+              </ul>
+          </div>
+          <div class="quick-links">
+            <h3>Ajuda</h3>
+            <ul>
+                <li><a href="index.html">Perguntas Frequentes</a></li>
+                
+            </ul>
+          </div>
+          <div class="quick-links">
+            <h3>Contato</h3>
+            <ul>
+              <li>aesaonline@gmail.com</li>
+            
+              
+            </ul>
+          </div>
+          <div class="social-media">
+            <h3>Siga-nos</h3>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            
+          </div>
+        </div>
+        <div class="copyright">
+          &copy; 2024 AesaOnline. Todos os direitos reservados.
+    </div>
+  </footer>
+ 
+  
+ 
+  <script src="script.js"></script>
+  <script src="livro.js"></script>
+</body>
+
+</html>

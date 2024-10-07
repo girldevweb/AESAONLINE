@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+/* Estilos para a página de listagem de livros */
+.livros-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: #93c572;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.livros-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.livros-hero p {
+    font-size: 1.2rem;
+}
+
+#livros-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.livro-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.livro-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.livro-item .livro-imagem {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.livro-item .livro-imagem img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.livro-item .ver-livro {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #93c572;
+    color: #fff;
+    text-decoration: none;
+    transition: bottom 0.3s ease;
+}
+
+.livro-item:hover .ver-livro {
+    bottom: 0;
+}
+
+.livro-item .livro-titulo,
+.livro-item .livro-autor {
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+.livro-item .livro-titulo {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.livro-item .livro-autor {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Estilos para o menu dropdown de categorias */
+.categorias-dropdown {
+    margin-bottom: 2rem;
+    position: relative;
+    width: 200px;
+}
+
+.categorias-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #93c572;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+
+.categorias-btn i {
+    margin-left: 10px;
+}
+
+.categorias-conteudo {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 0 0 5px 5px;
+}
+
+.categorias-conteudo a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.categorias-conteudo a:hover {
+    background-color: #f1f1f1;
+}
+
+.categorias-dropdown:hover .categorias-conteudo {
+    display: block;
+}
+
+/* Estilos para a página individual do livro */
+.livro-detalhe .livro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.livro-detalhe .livro-container:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.livro-detalhe .livro-header {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.livro-detalhe .livro-capa {
+    flex: 0 0 300px;
+    max-width: 300px;
+}
+
+.livro-detalhe .livro-capa img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.livro-detalhe .livro-capa img:hover {
+    transform: scale(1.03);
+}
+
+.livro-detalhe .livro-info-header {
+    flex: 1;
+}
+
+.livro-detalhe .livro-titulo {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    line-height: 1.2;
+}
+
+.livro-detalhe .livro-autor {
+    font-size: 1.3rem;
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+}
+
+.livro-detalhe .livro-descricao {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: #34495e;
+    font-size: 1.1rem;
+}
+
+.livro-detalhe .livro-info-detalhes {
+    margin-top: 2rem;
+    border-top: 1px solid #ecf0f1;
+    padding-top: 2rem;
+}
+
+.livro-detalhe .autor-info,
+.livro-detalhe .livro-detalhes {
+    margin-bottom: 2rem;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.livro-detalhe .autor-info h2,
+.livro-detalhe .livro-detalhes h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.livro-detalhe .livro-detalhes ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.livro-detalhe .livro-detalhes li {
+    margin-bottom: 0.8rem;
+    color: #34495e;
+}
+
+.livro-detalhe .livro-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.livro-detalhe .btn {
+    padding: 0.9rem 1.8rem;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(58, 90, 64, 0.2);
+}
+
+.livro-detalhe .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(58, 90, 64, 0.3);
+}
+
+.livro-detalhe .btn#comprar-fisico {
+    background-color: #3a5a40;
+}
+
+.livro-detalhe .btn#baixar-pdf {
+    background-color: #4a7a50;
+}
+
+.livro-detalhe .btn#audio-livro {
+    background-color: #5a9a60;
+}
+
+.livro-detalhe .btn#comprar-fisico:hover {
+    background-color: #2c4632;
+}
+
+.livro-detalhe .btn#baixar-pdf:hover {
+    background-color: #3c6c42;
+}
+
+.livro-detalhe .btn#audio-livro:hover {
+    background-color: #4c8c52;
+}
+
+/* Estilos para o player de áudio */
+#audio-player {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#audio-player h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+#audio-chapters {
+    list-style-type: none;
+    padding: 0;
+}
+
+#audio-chapters li {
+    cursor: pointer;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+#audio-chapters li:hover {
+    background-color: #d0d0d0;
+    transform: translateX(5px);
+}
+
+#audio-chapters li.playing {
+    background-color: #3a5a40;
+    color: #fff;
+}
+
+#audio-element {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    #livros-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .livro-item .livro-imagem {
+        height: 200px;
+    }
+
+    .livro-detalhe .livro-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .livro-detalhe .livro-capa {
+        max-width: 250px;
+        margin-bottom: 1.5rem;
+    }
+
+    .livro-detalhe .livro-info-header {
+        text-align: center;
+    }
+
+    .livro-detalhe .livro-titulo {
+        font-size: 2rem;
+    }
+
+    .livro-detalhe .livro-autor {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #livros-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .livro-item .livro-imagem {
+        height: 180px;
+    }
+
+    .livro-item .livro-titulo {
+        font-size: 0.9rem;
+    }
+
+    .livro-item .livro-autor {
+        font-size: 0.8rem;
+    }
+
+    .livro-detalhe .livro-container {
+        padding: 1.5rem;
+    }
+
+    .livro-detalhe .livro-capa {
+        max-width: 200px;
+    }
+
+    .livro-detalhe .livro-titulo {
+        font-size: 1.8rem;
+    }
+
+    .livro-detalhe .livro-autor {
+        font-size: 1.1rem;
+    }
+
+    .livro-detalhe .btn {
+        width: 100%;
+    }
+}

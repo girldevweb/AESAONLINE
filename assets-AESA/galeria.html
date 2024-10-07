@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AesaOnline</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .gallery-container {
+            max-width: 1400px; /* Aumentado para permitir mais espaço em telas maiores */
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px; /* Adicionado margem inferior ao título */
+            color: #93c572;
+            font-size: 2.5rem; /* Tamanho de fonte maior */
+            padding-top: 70px; /* Adiciona espaço acima e abaixo do título */
+            padding-bottom: 40px;
+           /* background-color: #f8f8f8; /* Fundo sutil para destacar o título */
+            border-radius: 10px; /* Cantos arredondados */
+            /*box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil */
+            position: relative; /* Para garantir que fique acima de outros elementos */
+            z-index: 10; /* Valor alto para garantir que fique visível */
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+           
+           
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .gallery-item::before {
+            content: "";
+            display: block;
+            padding-top: 70%;/* Proporção 4:3 para todas as imagens */
+        }
+        .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+            z-index: 1;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+            .gallery-item,
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            h1 {
+                font-size: 2rem; /* Tamanho de fonte menor para telas menores */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html">AesaOnline</a></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true" aria-expanded="false">
+                        Biografia <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="dropdown1" class="dropdown-content">
+                        <ul>
+                            <li><a href="maria-jose.html">Maria José Elias</a></li>
+                            <li><a href="antonio-elias.html">Antonio Elias</a></li>
+                            <li><a href="historia-casal.html">História do casal</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="sermoes.html">Sermões</a></li>
+                <li><a href="livros.html">Livros</a></li>
+                <li class="dropdown">
+                    <button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false">
+                        Depoimentos <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="dropdown2" class="dropdown-content">
+                        <ul>
+                            <li><a href="cartas.html">Cartas</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="sobre-nos.html">Sobre Nós</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Pesquisar...">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="icons-container">
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+            <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <div class="gallery-container">
+       <h1>Galeria</h1>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="images/amor-1.jpg" alt="Descrição da foto 1">
+            </div>
+            <div class="gallery-item">
+                <img src="images/encontro.jpg" alt="Descrição da foto 2">
+            </div>
+            <div class="gallery-item">
+                <img src="images/mensagens.jpg" alt="Descrição da foto 3">
+            </div>
+            <div class="gallery-item">
+                <img src="images/dep.jpg" alt="Descrição da foto 4">
+            </div>
+            <div class="gallery-item">
+                <img src="images/about-us.jpg" alt="Descrição da foto 5">
+            </div>
+            <!-- Adicione mais itens de galeria conforme necessário -->
+        </div>
+    </div>
+
+
+
+
+
+    <footer>
+        <div class="footer-content">
+          <div class="footer-logo">AesaOnline</div>
+          <div class="quick-links">
+            <h3>Links Rápidos</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#biografia">Biografia</a></li>
+                <li><a href="sermoes.html">Sermões</a></li>
+                <li><a href="livros.html">Livros</a></li>
+                <li><a href="cartas.html">Depoimentos</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="sobre-nos.html">Sobre Nós</a></li>
+              </ul>
+          </div>
+          <div class="quick-links">
+            <h3>Ajuda</h3>
+            <ul>
+                <li><a href="index.html">Perguntas Frequentes</a></li>
+                
+            </ul>
+          </div>
+          <div class="quick-links">
+            <h3>Contato</h3>
+            <ul>
+              <li>aesaonline@gmail.com</li>
+            
+              
+            </ul>
+          </div>
+          <div class="social-media">
+            <h3>Siga-nos</h3>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            
+          </div>
+        </div>
+        <div class="copyright">
+          &copy; 2024 AesaOnline. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
