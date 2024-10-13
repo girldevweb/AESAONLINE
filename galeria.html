@@ -11,90 +11,107 @@
 
 
     <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             background-color: #ffffff;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            color: #333;
         }
-        .gallery-container {
-            max-width: 1400px; /* Aumentado para permitir mais espaço em telas maiores */
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+
         h1 {
             text-align: center;
-            margin-bottom: 30px; /* Adicionado margem inferior ao título */
-            color: #93c572;
-            font-size: 2.5rem; /* Tamanho de fonte maior */
-            padding-top: 70px; /* Adiciona espaço acima e abaixo do título */
-            padding-bottom: 40px;
-           /* background-color: #f8f8f8; /* Fundo sutil para destacar o título */
-            border-radius: 10px; /* Cantos arredondados */
-            /*box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil */
-            position: relative; /* Para garantir que fique acima de outros elementos */
-            z-index: 10; /* Valor alto para garantir que fique visível */
+            margin: 40px 0;
+            font-size: 3rem;
+            color: #93c572; /* Verde estiloso */
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 700;
         }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste automático */
             gap: 20px;
-           
-           
         }
+
         .gallery-item {
             position: relative;
-            border-radius: 10px;
+            border-radius: 15px; /* Cantos arredondados */
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            transition: transform 0.5s ease, box-shadow 0.5s ease; /* Animação suave */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra estilosa */
         }
-        .gallery-item::before {
-            content: "";
-            display: block;
-            padding-top: 70%;/* Proporção 4:3 para todas as imagens */
-        }
+
         .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1); /* Zoom leve ao passar o mouse */
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05); /* Efeito de destaque */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao hover */
+        }
+
+        .gallery-item .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background-color: rgba(0, 0, 0, 0.6); /* Overlay escuro ao passar o mouse */
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
-        .gallery-item:hover {
-            transform: scale(1.03);
-            z-index: 1;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+        .gallery-item:hover .overlay {
+            opacity: 1; /* Mostra o overlay no hover */
         }
-        .gallery-item:nth-child(1) {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        .gallery-item:nth-child(4) {
-            grid-column: span 2;
+
+        .gallery-item .overlay span {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 5px;
         }
 
         @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            }
-            .gallery-item,
-            .gallery-item:nth-child(1),
-            .gallery-item:nth-child(4) {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
             h1 {
-                font-size: 2rem; /* Tamanho de fonte menor para telas menores */
+                font-size: 2.5rem; /* Ajusta o título em telas menores */
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste para telas pequenas */
             }
         }
+
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><a href="index.html">AesaOnline</a></div>
+        <div class="logo"><a href="index.html">ANTÔNIO<span>💗</span>MARIA</a></div>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -139,19 +156,34 @@
        <h1>Galeria</h1>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="images/amor-1.jpg" alt="Descrição da foto 1">
+                <img src="images/AE e MJ states 1959-Recovered.jpg" alt="Descrição da foto 1">
             </div>
             <div class="gallery-item">
-                <img src="images/encontro.jpg" alt="Descrição da foto 2">
+                <img src="images/AE colegas de turma  seminario jubileu de prata1968 igreja presb de rio claro.jpg" alt="Descrição da foto 2">
             </div>
             <div class="gallery-item">
-                <img src="images/mensagens.jpg" alt="Descrição da foto 3">
+                <img src="images/AE com Billy graham.jpg" alt="Descrição da foto 3">
             </div>
             <div class="gallery-item">
-                <img src="images/dep.jpg" alt="Descrição da foto 4">
+                <img src="images/AE cristo esperança nossa aracaju1 set 1964.jpg" alt="Descrição da foto 4">
             </div>
             <div class="gallery-item">
-                <img src="images/about-us.jpg" alt="Descrição da foto 5">
+                <img src="images/AE em porto alegre inicio do trabalho.jpg" alt="Descrição da foto 5">
+            </div>
+            <div class="gallery-item">
+                <img src="images/AE e Teo ccom 2 anos Color.jpg" alt="Descrição da foto 5">
+            </div>
+            <div class="gallery-item">
+                <img src="images/AE convite EUA 1.jpg" alt="Descrição da foto 5">
+            </div>
+            <div class="gallery-item">
+                <img src="images/AE Convite EUA 2.jpg" alt="Descrição da foto 5">
+            </div>
+            <div class="gallery-item">
+                <img src="images/AE varias.jpg" alt="Descrição da foto 5">
+            </div>
+            <div class="gallery-item">
+                <img src="images/AE pregando.jpg" alt="Descrição da foto 5">
             </div>
             <!-- Adicione mais itens de galeria conforme necessário -->
         </div>

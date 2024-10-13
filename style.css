@@ -38,17 +38,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
 }
 
 .logo a{
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--primary-color);
     text-decoration: none;
 }
-
+.logo span{
+    font-size: 25px;
+}
 nav {
     display: flex;
 }
@@ -206,7 +208,7 @@ main {
     background-position: center;
     background-size: cover;
     width: 100%;
-    min-height: 450px;
+   
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -227,7 +229,7 @@ main {
 .two-columns {
     display: flex;
     align-items: center;
-    justify-content: center; /*alterei isso*/
+    justify-content: space-between; /*alterei isso*/
     padding: 3rem 0;
     background-color: var(--white);
     min-height: 450px;
@@ -240,7 +242,7 @@ main {
 .image-column {
     position: relative;
     padding-top: 56.25%; /* Para uma proporção 16:9 */
-    background-image: url(images/encontro.jpg);
+    background-image: url('images/Banner\ 2\ -\ Encontro\ \(1\).jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -254,90 +256,126 @@ main {
     margin-right: 4rem;
     margin-left: 4rem;
 }
+.image-column, .text-column{
+    flex: 1 1 50%;
+    padding: 1rem;
+}
+/* Estilos gerais (válidos para todas as larguras) */
+.logo a {
+    font-size: 1.2rem;
+}
+.logo span {
+    font-size: 16px;
+}
 
+/* Estilos para telas pequenas (até 375px) */
 @media (max-width: 375px) {
-    .hero,
-    .depoimentos,
     .galeria,
-    .mensagens,
-    .encontro,
-    .sobre-nos
+    .sobre-nos {
+        min-height: 280px;/*260*/
+    }
+    .hero,
+    .encontro {
+        min-height: 360px;
+    }
+    .mensagens {
+        min-height: 270px;
+    }
+    .depoimentos {
+        min-height: 260px;
+    }
+}
+
+/* Estilos para telas médias (de 390px a 767px) */
+@media (min-width: 390px) and (max-width: 767px) {
+    .logo a {
+        font-size: 1.5rem;
+    }
+    .logo span {
+        font-size: 20px;
+    }
    
-    {
-        min-height: 290px;
+    .mensagens {
+        min-height: 300px; /*360*/
+    }
+    .galeria {
+        min-height: 300px;
+    }
+    .hero{
+        min-height: 350px;
     }
 }
-@media (min-width: 400px) {
-    .hero,
-    .depoimentos,
-    .galeria,
-    .mensagens,
-    .encontro
-    
-    
-    {
-        min-height: 380px;
-    }
-}
-@media (min-width: 400px) {
+
+/* Estilos para telas médias/grandes (de 768px a 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
    
-    .sobre-nos
-    {
-        min-height: 320px;
-    }
-}
-@media (min-width: 600px) {
-    .hero,
     .depoimentos,
-    .galeria,
-    .mensagens,
     .encontro,
-    .sobre-nos
-    
-    {
+    .hero,
+    .sobre-nos {
+        min-height: 630px;
+    }
+    .mensagens {
+        min-height: 600px;
+    }
+    .livros-cont {
+        min-height: 485px; /*385*/
+    }
+    .galeria {
         min-height: 550px;
     }
+   
 }
-@media (min-width: 768px) {
-    .hero,
-    .depoimentos,
-    .galeria,
-    .mensagens,
-    .encontro,
-    .sobre-nos
-    
-    {
-        min-height: 650px;
-    }
-}
+
+/* Estilos para telas grandes (992px em diante) */
 @media (min-width: 992px) {
-    .hero,
+    .logo a {
+        font-size: 1.5rem; /* tamanho maior para telas grandes */
+    }
+    
     .depoimentos,
     .galeria,
     .mensagens,
     .encontro,
-    .sobre-nos
-    
-    {
+    .sobre-nos {
         min-height: 750px;
     }
-}
-@media (min-width: 1100px) {
-    .hero,
-    .depoimentos,
-    .galeria,
-    .mensagens,
-    .encontro,
-    .sobre-nos
-    
-    {
-        min-height: 320px;
+    .livros-cont {
+        min-height: 520px;
+    }
+    .hero{
+        min-height: 800px;
     }
 }
+
+/* Estilos para telas extra grandes (1100px em diante) */
+@media (min-width: 1100px) {
+   
+    .depoimentos,
+    .encontro,
+    .livros-cont,
+    .sobre-nos {
+        min-height: 320px;
+    }
+    .mensagens
+     {
+        min-height: 350px;
+    }
+    .galeria {
+        min-height: 350px;
+    }
+    .logo a {
+        font-size: 1.2rem; /* ajusta o tamanho da logo */
+    }
+    .logo span {
+        font-size: 18px;
+    }
+}
+
 .mensagens{
-    background-image: url(images/mensagens.jpg);
+    background-image: url('images/Banner\ 3\ -\ Mensagens\ \(1\).jpg');
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: center;
     background-size: cover;
     width: 100%;
     /*min-height: 300px;*/
@@ -347,7 +385,7 @@ main {
   
 }
 .depoimentos{
-    background-image: url(images/dep.jpg);
+    background-image: url('images/Banner\ 5\ -\ Depoimentos\ \(1\).jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -359,9 +397,9 @@ main {
 }
 .galeria{
 
-    background-image: url(images/AE\ em\ açao.jpg);
+    background-image: url('images/galeria-1.png');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left;
     background-size: cover;
     width: 100%;
    /* min-height: 350px;*/
@@ -371,7 +409,7 @@ main {
 }
 
 .sobre-nos{
-    background-image: url(images/about-us.jpg);
+    background-image: url('images/Banner\ 6\ -\ Sobre\ Nos\ \(1\).jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -381,9 +419,10 @@ main {
     justify-content: center;
     align-items: center;
 }
-.text-column {
-  flex: 0 0 60%; /* Aumenta a largura da coluna de texto */
-  padding: 2rem;
+.text-column p{
+ /* flex: 0 0 60%; /* Aumenta a largura da coluna de texto */
+    margin: 0;
+    padding: 2rem;
 }
 .btn-livro{
     display: flex;
@@ -457,17 +496,16 @@ h2 {
     transform: translateY(-3px);
 }
 
-.livros-container{
-    background-image: url('images/livros.jpg');
+.livros-cont{
+    background-image: url('images/Banner\ 4\ -\ Livros\ \(1\).jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
-    min-height: 675px;
+   
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
 }
 /*PÁGINA LIVRO INDIVIDUAL*/
 /* Adicione isso ao seu arquivo style.css existente */
@@ -900,7 +938,7 @@ footer {
     background-color: #f9f9f9;
     padding: 60px 20px;
     border-radius: 15px;
-   
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
 .maria-jose-legado h2 {
@@ -1011,7 +1049,7 @@ footer {
     background-color: #f4f4f4;
     padding: 60px 20px;
     border-radius: 15px;
-   
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
 .antonio-elias-legado h2 {
@@ -1094,7 +1132,7 @@ footer {
     background-color: #f4f4f4;
     padding: 60px 20px;
     border-radius: 15px;
-   
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
 .historia-casal-legado h2 {
@@ -1286,9 +1324,8 @@ footer {
   .rounded-image {
     width: 100%;
     border-radius: 10px;
- 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
   
   .sobre-nos-impacto {
     text-align: center;
@@ -1311,7 +1348,7 @@ footer {
     background-color: #f9f9f9;
     padding: 2rem;
     border-radius: 10px;
-   
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .impacto-item i {
@@ -1336,7 +1373,7 @@ footer {
     background-color: #f9f9f9;
     padding: 4rem 2rem;
     border-radius: 10px;
-    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .sobre-nos-participe h2 {
@@ -1574,13 +1611,9 @@ footer {
         font-size: 1.1em;
     }
 }
-@media screen and (min-width: 880px) 
-{
-    .hero{
-        min-height: 700px;
-    }
+
    
-}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
@@ -1763,7 +1796,7 @@ footer {
 
 @media (max-width: 550px) {
     .livros-container{
-        min-height: 450px;
+        min-height: 330px;
     }
 }
 
