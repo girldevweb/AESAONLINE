@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             paginas: 220, publicado: "11 de maio de 2007", editora: "Editora Luz"
         },
         {
-            id: 15, titulo: "Cartas de Amor", autor: "Maria José A. Elias e Rev. Antônio Elias", imagem: "images/cartas-de-amor-1.jpg",
+            id: 15, titulo: "Cartas de Amor", autor: "Maria José A. Elias e Rev. Antônio Elias", imagem: "images/capa-cartas.png",
             descricao: "Uma coleção tocante de cartas entre o casal Elias, revelando o amor de Deus através do relacionamento conjugal.",
             autorBio: "Maria José A. Elias e Rev. Antônio Elias abrem seus corações nesta obra íntima e inspiradora.",
             paginas: 160, publicado: "14 de fevereiro de 2006", editora: "Editora Fé"
