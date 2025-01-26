@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 12, titulo: "Água feita vinho", autor: "Maria José A. Elias e Rev. Antônio Elias", imagem: "images/agua-feita-vinho-1.jpg", categoria: "Estudo Bíblico" },
         { id: 13, titulo: "O teu Deus, onde está?", autor: "Maria José A. Elias", imagem: "images/o-teu-Deus-onde-esta-1.jpg", categoria: "Espiritualidade" },
         { id: 14, titulo: "Sementeira da Palavra", autor: "Rev. Antônio Elias", imagem: "images/sementeira-da-palavra-1.jpg", categoria: "Sermões" },
-        { id: 15, titulo: "Cartas de Amor", autor: "Maria José A. Elias e Rev. Antônio Elias", imagem: "images/cartas-de-amor-1.jpg", categoria: "Testemunhos" }
+        { id: 15, titulo: "Cartas de Amor", autor: "Maria José A. Elias e Rev. Antônio Elias", imagem: "images/capa-cartas.png", categoria: "Testemunhos" }
     ];
 
     const livrosContainer = document.getElementById('livros-container');
