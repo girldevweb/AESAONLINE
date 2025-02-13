@@ -24,10 +24,11 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
     padding-top: 80px;
-    min-height: 100vh; /* Garante altura mínima de 100% da viewport */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; /* Previne scroll horizontal */
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%; /* Para Safari */
 }
 
 header {
@@ -207,13 +208,17 @@ main {
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
+    position: relative; /* Para Safari */
+    overflow: hidden; /* Para Safari */
 }
 
 .container {
     width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
+    -webkit-overflow-scrolling: touch; /* Para Safari */
 }
 
 .hero {
@@ -1893,4 +1898,17 @@ img {
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     max-width: 100%;
+}
+
+/* Correção específica para Safari */
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
+    
+    main {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 }
