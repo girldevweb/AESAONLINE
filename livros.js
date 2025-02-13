@@ -1,25 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
     const livros = [
-        { id: 1, titulo: "A Oração na Bíblia", autor: "Maria José A. Elias", imagem: "images/oracao-na-biblia-1.jpg", categoria: "Oração" },
-        { id: 2, titulo: "O Deus Presente", autor: "Maria José A. Elias", imagem: "images/o-Deus-presente-1.jpg", categoria: "Espiritualidade" },
-        { id: 3, titulo: "A Família do Pastor e a Igreja", autor: "Maria José A. Elias", imagem: "images/a-familia-do-pastor-1.jpg", categoria: "Família" },
-        { id: 4, titulo: "Passos pelo caminho", autor: "Maria José A. Elias", imagem: "images/passos-do-caminho-1.jpg", categoria: "Vida Cristã" },
-        { id: 5, titulo: "Propostas Bíblicas para a Liderança Cristã", autor: "Maria José A. Elias", imagem: "images/propostas-biblicas-1.jpg", categoria: "Liderança" },
-        { id: 6, titulo: "Sucata de Lembranças", autor: "Maria José A. Elias", imagem: "images/sucata-de-lembrancas-1.jpg", categoria: "Poesia" },
-        { id: 7, titulo: "Pescadores de Homens", autor: "Maria José A. Elias e Pr. Odélio Hertz", imagem: "images/pescadores-de-homens-1.jpg", categoria: "Evangelismo" },
-        { id: 8, titulo: "Cantigas para o meu Deus", autor: "Maria José A. Elias", imagem: "images/cantigas-para-o-meu-Deus-1.jpg", categoria: "Poesia" },
-        { id: 9, titulo: "Testemunhos Vivos", autor: "Rev. Antônio Elias", imagem: "images/testemunhos-vivos-1.png", categoria: "Testemunhos" },
-        { id: 10, titulo: "Família em Foco", autor: "Maria José A. Elias", imagem: "images/familia-em-foco-1.jpg", categoria: "Família" },
-        { id: 11, titulo: "Era sem forma e vazia...", autor: "Maria José A. Elias", imagem: "images/era-sem-forma-1.jpg", categoria: "Estudo Bíblico" },
-        { id: 12, titulo: "Água feita vinho", autor: "Maria José A. Elias e Rev. Antônio Elias", imagem: "images/agua-feita-vinho-1.jpg", categoria: "Estudo Bíblico" },
-        { id: 13, titulo: "O teu Deus, onde está?", autor: "Maria José A. Elias", imagem: "images/o-teu-Deus-onde-esta-1.jpg", categoria: "Espiritualidade" },
-        { id: 14, titulo: "Sementeira da Palavra", autor: "Rev. Antônio Elias", imagem: "images/sementeira-da-palavra-1.jpg", categoria: "Sermões" },
-        { id: 15, titulo: "Cartas de Amor", autor: "Maria José A. Elias e Rev. Antônio Elias", imagem: "images/cartas-de-amor-1.jpg", categoria: "Testemunhos" }
+        { id: 1, titulo: "A Oração na Bíblia", autor: "Maria José A. Elias", imagem: "images/livros/Oracao.jpg", categoria: "Oração" },
+        { id: 2, titulo: "O Deus Presente", autor: "Maria José A. Elias", imagem: "images/livros/O Deus Presente.jpg", categoria: "Espiritualidade" },
+        { id: 3, titulo: "A Família do Pastor e a Igreja", autor: "Maria José A. Elias", imagem: "images/livros/A Familia do Pastor.jpg", categoria: "Família" },
+        { id: 4, titulo: "Passos pelo caminho", autor: "Maria José A. Elias", imagem: "images/livros/Passos.jpg", categoria: "Vida Cristã" },
+        { id: 5, titulo: "Propostas Bíblicas para a Liderança Cristã", autor: "Maria José A. Elias", imagem: "images/livros/Propostas.jpg", categoria: "Liderança" },
+        { id: 6, titulo: "Sucata de Lembranças", autor: "Maria José A. Elias", imagem: "images/livros/Sucata.jpg", categoria: "Poesia" },
+        { id: 7, titulo: "Pescadores de Homens", autor: "Maria José A. Elias e Pr. Odélio Hertz", imagem: "images/livros/Pescadores.jpg", categoria: "Evangelismo" },
+        { id: 8, titulo: "Cantigas para o meu Deus", autor: "Maria José A. Elias", imagem: "images/livros/Cantigas.jpg", categoria: "Poesia" },
+        { id: 9, titulo: "Testemunhos Vivos", autor: "Rev. Antônio Elias", imagem: "images/livros/Testemunhos.jpg", categoria: "Testemunhos" },
+        { id: 10, titulo: "Família em Foco", autor: "Maria José A. Elias", imagem: "images/livros/Familia em Foco.jpg", categoria: "Família" },
+        { id: 11, titulo: "Era sem forma e vazia...", autor: "Maria José A. Elias", imagem: "images/livros/Era Sem Forma.jpg", categoria: "Estudo Bíblico" },
+        { id: 12, titulo: "Água feita vinho", autor: "Maria José A. Elias e Rev. Antônio Elias", imagem: "images/livros/Agua feita.jpg", categoria: "Estudo Bíblico" },
+        { id: 13, titulo: "O teu Deus, onde está?", autor: "Maria José A. Elias", imagem: "images/livros/O teu Deus.jpg", categoria: "Espiritualidade" },
+        { id: 14, titulo: "Sementeira da Palavra", autor: "Rev. Antônio Elias", imagem: "images/livros/Sementeira.jpg", categoria: "Sermões" },
+        { id: 15, titulo: "Cartas de Amor", autor: "Maria José A. Elias e Rev. Antônio Elias", imagem: "images/livros/Cartas de Amor.jpg", categoria: "Testemunhos" }
     ];
 
     const livrosContainer = document.getElementById('livros-container');
     const categoriasLinks = document.querySelectorAll('.categorias-conteudo a');
     const categoriasBotao = document.querySelector('.categorias-btn');
+    const categoriasConteudo = document.querySelector('.categorias-conteudo');
+
+    // Adiciona toggle ao botão de categorias e ao conteúdo
+    categoriasBotao.addEventListener('click', () => {
+        categoriasConteudo.style.display = categoriasConteudo.style.display === 'block' ? 'none' : 'block';
+    });
+
+    categoriasConteudo.addEventListener('click', () => {
+        categoriasConteudo.style.display = 'none';
+    });
 
     function exibirLivros(livrosFiltrados) {
         livrosContainer.innerHTML = '';
@@ -55,7 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
             
             categoriasBotao.textContent = categoriaSeleccionada;
             categoriasBotao.appendChild(document.createElement('i')).className = 'fas fa-chevron-down';
+            categoriasConteudo.style.display = 'none';
         });
+    });
+
+    // Fecha o dropdown quando clicar fora dele
+    document.addEventListener('click', (e) => {
+        if (!categoriasBotao.contains(e.target) && !categoriasConteudo.contains(e.target)) {
+            categoriasConteudo.style.display = 'none';
+        }
     });
 
     // Exibir todos os livros inicialmente
