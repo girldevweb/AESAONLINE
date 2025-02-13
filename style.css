@@ -202,9 +202,9 @@ nav {
 }
 
 main {
-    flex: 1 0 auto; /* Alterado para flex: 1 0 auto */
+    flex: 1 0 auto;
     width: 100%;
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
@@ -212,7 +212,7 @@ main {
 
 .container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
@@ -1916,6 +1916,31 @@ img {
         main {
             flex-shrink: 0;
             min-height: calc(100vh - 80px); /* altura da viewport menos o padding-top do body */
+        }
+    }
+}
+
+/* Breakpoints para telas grandes */
+@media screen and (min-width: 1920px) {
+    main, .container {
+        max-width: 90%; /* Usa porcentagem em vez de valor fixo */
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 2500px) {
+    main, .container {
+        max-width: 80%; /* Reduz ainda mais para telas muito grandes */
+        margin: 0 auto;
+    }
+}
+
+/* Correções específicas para Safari */
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        main {
+            flex-shrink: 0;
+            min-height: calc(100vh - 80px);
         }
     }
 }
