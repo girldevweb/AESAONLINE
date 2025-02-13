@@ -28,28 +28,55 @@ document.addEventListener('DOMContentLoaded', () => {
         const dropdownBtn = dropdown.querySelector('.dropdown-btn');
         const dropdownContent = dropdown.querySelector('.dropdown-content');
         
-        // Evento de mouseover no botão do dropdown
-        dropdownBtn.addEventListener('mouseover', (e) => {
-            e.preventDefault();
-            
-            // Fecha todos os outros dropdowns
-            dropdowns.forEach(d => {
-                if (d !== dropdown) {
-                    d.querySelector('.dropdown-content').classList.remove('active');
-                    d.querySelector('.dropdown-btn').setAttribute('aria-expanded', 'false');
+        // Evento de clique para telas pequenas
+        if (window.innerWidth <= 1100) {
+            dropdownBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Se este dropdown está ativo, fecha ele
+                if (dropdownContent.classList.contains('active')) {
+                    dropdownContent.classList.remove('active');
+                    dropdownBtn.setAttribute('aria-expanded', 'false');
+                } else {
+                    // Fecha todos os outros dropdowns primeiro
+                    dropdowns.forEach(other => {
+                        const otherContent = other.querySelector('.dropdown-content');
+                        const otherBtn = other.querySelector('.dropdown-btn');
+                        otherContent.classList.remove('active');
+                        otherBtn.setAttribute('aria-expanded', 'false');
+                    });
+                    
+                    // Abre este dropdown
+                    dropdownContent.classList.add('active');
+                    dropdownBtn.setAttribute('aria-expanded', 'true');
                 }
             });
+        }
+        
+        // Eventos hover para telas grandes
+        if (window.innerWidth > 1100) {
+            dropdown.addEventListener('mouseenter', () => {
+                dropdownContent.classList.add('active');
+                dropdownBtn.setAttribute('aria-expanded', 'true');
+            });
+            
+            dropdown.addEventListener('mouseleave', () => {
+                dropdownContent.classList.remove('active');
+                dropdownBtn.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
 
-            // Abre o dropdown atual
-            dropdownContent.classList.add('active');
-            dropdownBtn.setAttribute('aria-expanded', 'true');
-        });
-
-        // Evento de mouseleave no li que contém o dropdown
-        dropdown.addEventListener('mouseleave', () => {
-            dropdownContent.classList.remove('active');
-            dropdownBtn.setAttribute('aria-expanded', 'false');
-        });
+    // Fecha todos os dropdowns ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+            dropdowns.forEach(dropdown => {
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+                const dropdownBtn = dropdown.querySelector('.dropdown-btn');
+                dropdownContent.classList.remove('active');
+                dropdownBtn.setAttribute('aria-expanded', 'false');
+            });
+        }
     });
 
     // Função de busca

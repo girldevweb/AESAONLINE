@@ -15,6 +15,8 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -24,10 +26,12 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
     padding-top: 80px;
-    min-height: 100vh; /* Garante altura mínima de 100% da viewport */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; /* Previne scroll horizontal */
+    margin: 0;
 }
 
 header {
@@ -202,43 +206,47 @@ nav {
 
 main {
     flex: 1;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
 }
 
 .hero {
-    width: 100%;
-    height: auto;
     position: relative;
-    background-image: url('images/amor-1.jpg');
-    background-size: contain; /* Mudança de 'cover' para 'contain' */
-    background-position: center;
-    background-repeat: no-repeat;
-    padding-top: 66.64%; /* Proporção da imagem (933/1400 * 100) */
-    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 100%;
+    height: 0;
+    padding-bottom: 66.64%; /* (933/1400) * 100 = 66.64% - proporção exata da imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+   
+    overflow: hidden;
 }
 
-.hero-content {
+.hero::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    background-image: url('images/amor-1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
 }
 
 .hero h1, .hero h2 {
@@ -258,23 +266,69 @@ main {
 .two-columns:nth-child(even) {
     background-color: white;
 }
-.image-column {
+
+/* Estilo base comum para todas as imagens */
+.image-column, .mensagens, .livros-cont, .galeria, .depoimentos, .sobre-nos {
     position: relative;
-    padding-top: 56.25%; /* Para uma proporção 16:9 */
-    background-image: url('images/Banner\ 2\ -\ Encontro\ \(1\).jpg');
+    width: 100%;
+    height: 0;
+    padding-bottom: 58%; /* (501/864) * 100 = 58% */
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
-    width: 100%;
-    min-height: 330px;
+    background-size: contain;
+    display: -webkit-flex;
+    display: -moz-flex;
     display: flex;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
     justify-content: center;
-
-
-    padding: 2rem;
     margin-right: 4rem;
     margin-left: 4rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    perspective: 1000;
 }
+
+/* Imagens específicas */
+.image-column {
+    background-image: url('images/EncontroIMG.jpg');
+}
+
+.mensagens {
+    background-image: url('images/MensagensIMG.jpg');
+}
+
+.livros-cont {
+    background-image: url('images/LivrosIMG.jpg');
+}
+
+.galeria {
+    background-image: url('images/Esbocos.jpg');
+    background-position: center; /* Alterado de 'left' para 'center' */
+    background-size: contain; /* Mantendo 'contain' para preservar a proporção */
+}
+.depoimentos {
+    background-image: url('images/DepoimentosIMG.jpg');
+    background-position: center;
+    background-size: contain;
+}
+
+.sobre-nos {
+    background-image: url('images/SobreIMG.jpg');
+    background-position: center;
+    background-size: contain;
+}
+
 .image-column, .text-column{
     flex: 1 1 50%;
     padding: 1rem;
@@ -391,53 +445,7 @@ main {
     }
 }
 
-.mensagens{
-    background-image: url('images/Banner\ 3\ -\ Mensagens\ \(1\).jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    /*min-height: 300px;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-}
-.depoimentos{
-    background-image: url('images/Banner\ 5\ -\ Depoimentos\ \(1\).jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    /*min-height: 350px;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.galeria{
 
-    background-image: url('images/galeria-1.png');
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: cover;
-    width: 100%;
-   /* min-height: 350px;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.sobre-nos{
-    background-image: url('images/Banner\ 6\ -\ Sobre\ Nos\ \(1\).jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    /*min-height: 320px;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .text-column p{
  /* flex: 0 0 60%; /* Aumenta a largura da coluna de texto */
     margin: 0;
@@ -516,7 +524,7 @@ h2 {
 }
 
 .livros-cont{
-    background-image: url('images/Banner\ 4\ -\ Livros\ \(1\).jpg');
+    background-image: url('images/LivrosIMG.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -655,6 +663,7 @@ footer {
     background-color: var(--primary-color);
     color: #f4f4f4;
     padding: 2rem;
+    flex-shrink: 0;
 }
 
 .footer-content {
@@ -724,10 +733,11 @@ footer {
 
 /* Estilos para a seção de sermões */
 .sermoes-playlist {
+    min-height: calc(100vh - 80px - 300px); /* altura da viewport - header - footer */
+    padding: 2rem;
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    padding: 2rem;
     max-width: 1200px;
     margin: 4rem auto;
     background-color: #fff;
@@ -759,12 +769,12 @@ footer {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
     width: 100%;
-    color: #067b2e;;
+    color: #93c572;
 }
 
 #autor-atual {
     font-size: 0.9rem;
-    color:#15853b;;
+    color:#93c572;;
     margin-bottom: 1rem;
     width: 100%;
 }
@@ -778,7 +788,7 @@ footer {
 }
 
 .controles-player button {
-    background-color: #15853b;;
+    background-color: #93c572;
     color: white;
     border: none;
     border-radius: 50%;
@@ -838,7 +848,7 @@ footer {
 }
 
 .barra-pesquisa button {
-    background-color: #15853b;
+    background-color: #93c572;;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -1652,7 +1662,7 @@ footer {
     .image-column img {
         max-width: 100%; /* Permite que a imagem ocupe toda a largura em telas menores */
     }
-  
+   
     .sermoes-playlist {
         flex-direction: column;
     }
@@ -1829,68 +1839,100 @@ footer {
     }
 }
 
-/* Para telas muito grandes */
-@media screen and (min-width: 1920px) {
-    main {
-        max-width: 1600px; /* Ainda maior para telas muito grandes */
-    }
+/* Adicione suporte para flexbox em navegadores mais antigos */
+.flex-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
-/* Breakpoints mais organizados */
-/* Extra large screens */
-@media screen and (min-width: 1920px) {
-    main {
-        max-width: 1800px;
-        padding: 40px;
+/* Adicione suporte para transformações em diferentes navegadores */
+.transform-supported {
+    -webkit-transform: translateY(-3px);
+    -moz-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    -o-transform: translateY(-3px);
+    transform: translateY(-3px);
+}
+
+/* Ajuste para telas muito grandes */
+@media (min-width: 2000px) {
+    .hero {
+        max-width: 100%;
+        margin: 0 auto;
     }
     
-    .container {
-        max-width: 1800px;
+    .hero::before {
+        background-size: contain;
+        width: 100%;
+        height: 100%;
     }
 }
 
-/* Large screens */
-@media screen and (min-width: 1400px) and (max-width: 1919px) {
-    main {
-        max-width: 1400px;
-        padding: 30px;
-    }
-    
-    .container {
-        max-width: 1400px;
-    }
-}
-
-/* Medium-large screens */
-@media screen and (min-width: 1200px) and (max-width: 1399px) {
-    main {
-        max-width: 1200px;
-        padding: 25px;
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero {
+        padding-bottom: 66.64%; /* Mantém a mesma proporção */
     }
     
-    .container {
-        max-width: 1200px;
+    .hero::before {
+        background-size: 100% auto;
     }
 }
 
-/* Ajuste para garantir que o conteúdo fique sempre centralizado */
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+@media (min-width: 769px) {
+    .hero {
+        padding-bottom: 66.64%; /* Mantém a mesma proporção */
+    }
 }
 
-/* Ajuste para elementos de imagem */
-img {
-    max-width: 100%;
-    height: auto;
+@media (min-width: 2000px) {
+    .hero::before {
+        background-size: 100% auto;
+    }
 }
 
-/* Ajuste para grid de livros em diferentes tamanhos de tela */
-.livros-grid {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    max-width: 100%;
+/* Orientação paisagem em dispositivos móveis */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding-bottom: 90vh;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .image-column, .mensagens, .livros-cont, .galeria {
+        margin-right: 1rem;
+        margin-left: 1rem;
+        padding-bottom: 58%; /* Mantém a mesma proporção */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .image-column, .mensagens, .livros-cont, .galeria {
+        margin-right: 2rem;
+        margin-left: 2rem;
+        background-size: contain;
+    }
+}
+
+@media (min-width: 1201px) {
+    .image-column, .mensagens, .livros-cont, .galeria {
+        background-size: contain;
+        max-width: calc(1200px - 8rem);
+        margin: 0 auto;
+    }
+}
+
+/* Suporte específico para Safari */
+@supports (-webkit-touch-callout: none) {
+    .image-column, .mensagens, .livros-cont, .galeria, .depoimentos, .sobre-nos {
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        mask-image: -webkit-radial-gradient(white, black);
+    }
 }
