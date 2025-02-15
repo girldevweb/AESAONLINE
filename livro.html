@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AesaOnline</title>
   
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="livros-style.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
     .livro-descricao {
         white-space: pre-line;
@@ -18,7 +18,7 @@
   </style>
 </head>
 
-<body>
+<body class="livro-page">
   <header>
     <div class="logo"><a href="index.html">ANTÔNIO<span>💗</span>MARIA</a></div>
     <nav>
@@ -26,7 +26,7 @@
         <li><a href="index.html">Home</a></li>
         <li class="dropdown">
           <button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true" aria-expanded="false">
-            Biografia <i class="fas fa-chevron-down"></i>
+            Biografia <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div id="dropdown1" class="dropdown-content">
             <ul>
@@ -40,7 +40,7 @@
         <li><a href="livros.html">Livros</a></li>
         <li class="dropdown">
           <button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false">
-            Depoimentos <i class="fas fa-chevron-down"></i>
+            Depoimentos <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div id="dropdown2" class="dropdown-content">
             <ul>
@@ -90,9 +90,9 @@
           </ul>
         </div>
         <div class="livro-acoes">
-          <button id="baixar-epub" class="btn">Baixar EPUB</button>
-          <button id="baixar-pdf" class="btn">Baixar PDF</button>
-          <button id="audio-livro" class="btn">Áudio livro</button>
+          <button id="baixar-epub" class="btn livro-btn">Baixar EPUB</button>
+          <button id="baixar-pdf" class="btn livro-btn">Baixar PDF</button>
+          <button id="audio-livro" class="btn livro-btn">Áudio livro</button>
         </div>
       </div>
     </div>
@@ -144,9 +144,10 @@
   </footer>
  
   
- 
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
   <script src="livro.js"></script>
+  
 </body>
 
 </html>

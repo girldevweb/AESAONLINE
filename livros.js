@@ -22,13 +22,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoriasBotao = document.querySelector('.categorias-btn');
     const categoriasConteudo = document.querySelector('.categorias-conteudo');
 
-    // Adiciona toggle ao botão de categorias e ao conteúdo
-    categoriasBotao.addEventListener('click', () => {
-        categoriasConteudo.style.display = categoriasConteudo.style.display === 'block' ? 'none' : 'block';
+    // Função para toggle do dropdown em mobile
+    const toggleDropdown = () => {
+        if (window.innerWidth <= 1100) {
+            categoriasConteudo.style.display = 
+                categoriasConteudo.style.display === 'block' ? 'none' : 'block';
+            
+            const icon = categoriasBotao.querySelector('i');
+            if (icon) {
+                icon.className = categoriasConteudo.style.display === 'block'
+                    ? 'fa-solid fa-chevron-up'
+                    : 'fa-solid fa-chevron-down';
+            }
+        }
+    };
+
+    // Click event para mobile
+    categoriasBotao.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1100) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleDropdown();
+        }
     });
 
-    categoriasConteudo.addEventListener('click', () => {
-        categoriasConteudo.style.display = 'none';
+    // Fechar ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1100) {
+            if (!categoriasBotao.contains(e.target) && !categoriasConteudo.contains(e.target)) {
+                categoriasConteudo.style.display = 'none';
+                const icon = categoriasBotao.querySelector('i');
+                if (icon) {
+                    icon.className = 'fa-solid fa-chevron-down';
+                }
+            }
+        }
     });
 
     function exibirLivros(livrosFiltrados) {
@@ -63,17 +91,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const livrosFiltrados = filtrarLivros(categoriaSeleccionada);
             exibirLivros(livrosFiltrados);
             
-            categoriasBotao.textContent = categoriaSeleccionada;
-            categoriasBotao.appendChild(document.createElement('i')).className = 'fas fa-chevron-down';
+            const spanTexto = categoriasBotao.querySelector('span');
+            if (spanTexto) {
+                spanTexto.textContent = categoriaSeleccionada;
+            }
+            
             categoriasConteudo.style.display = 'none';
+            const icon = categoriasBotao.querySelector('i');
+            if (icon) {
+                icon.className = 'fa-solid fa-chevron-down';
+            }
         });
-    });
-
-    // Fecha o dropdown quando clicar fora dele
-    document.addEventListener('click', (e) => {
-        if (!categoriasBotao.contains(e.target) && !categoriasConteudo.contains(e.target)) {
-            categoriasConteudo.style.display = 'none';
-        }
     });
 
     // Exibir todos os livros inicialmente

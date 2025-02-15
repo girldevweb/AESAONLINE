@@ -9,11 +9,12 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  <link rel="stylesheet" href="style.css">
+  
   <link rel="stylesheet" href="livros-style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="livros-page">
   <header>
     <div class="logo"><a href="index.html">ANTÔNIO<span>💗</span>MARIA</a></div>
     <nav>
@@ -21,7 +22,7 @@
         <li><a href="index.html">Home</a></li>
         <li class="dropdown">
           <button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true" aria-expanded="false">
-            Biografia <i class="fas fa-chevron-down"></i>
+            Biografia <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div id="dropdown1" class="dropdown-content">
             <ul>
@@ -35,7 +36,7 @@
         <li><a href="livros.html">Livros</a></li>
         <li class="dropdown">
           <button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false">
-            Depoimentos <i class="fas fa-chevron-down"></i>
+          Depoimentos <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div id="dropdown2" class="dropdown-content">
             <ul>
@@ -57,14 +58,16 @@
     </div>
   </header>
 
-  <main>
+  <main class="livros-main">
     <section class="livros-hero">
       <h1>Nossos Livros</h1>
       <p>Explore nossa coleção de livros inspiradores</p>
     </section>
 
     <div class="categorias-dropdown">
-      <button class="categorias-btn">Categorias <i class="fas fa-chevron-down"></i></button>
+      <button class="categorias-btn">
+        <span>Categorias</span> <i class="fa-solid fa-chevron-down"></i>
+      </button>
       <div class="categorias-conteudo">
         <a href="#">Todos</a>
         <a href="#">Oração</a>
